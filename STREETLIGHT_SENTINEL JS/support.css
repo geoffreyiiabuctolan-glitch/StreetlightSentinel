@@ -1,0 +1,104 @@
+.support-container {
+    display: flex;
+    gap: 28px;
+    height: calc(100vh - 180px);
+    min-height: 500px;
+}
+.ticket-list {
+    flex: 1;
+    background: white;
+    border-radius: 28px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    overflow-y: auto;
+    box-shadow: var(--shadow-md);
+}
+body.dark .ticket-list { background: var(--bg-secondary); }
+.ticket-list h3 { margin-bottom: 20px; color: var(--green); font-size: 20px; }
+.ticket-card {
+    background: var(--light);
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.ticket-card:hover {
+    transform: translateX(4px);
+    border-color: var(--green);
+    box-shadow: var(--shadow-sm);
+}
+.ticket-card .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.ticket-type-badge {
+    background: var(--yellow);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.ticket-detail {
+    flex: 1;
+    background: white;
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+body.dark .ticket-detail { background: var(--bg-secondary); }
+.ticket-detail select, .ticket-detail textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid var(--input-border);
+    margin: 10px 0;
+    font-size: 15px;
+    resize: vertical;
+    background: var(--input-bg);
+    color: var(--input-text);
+    outline: none;
+}
+.ticket-detail select:focus, .ticket-detail textarea:focus {
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+}
+.support-btn {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: 0.2s;
+    box-shadow: var(--shadow-sm);
+    outline: none;
+}
+.support-btn:hover {
+    background: var(--green-dark);
+    transform: scale(1.02);
+}
+.support-btn:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 10px rgba(0,0,0,0.1);
+}
+.admin-reply-box {
+    background: var(--light);
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 16px;
+    border-left: 4px solid var(--green);
+}
+.admin-reply-box p { margin-bottom: 8px; font-weight: 500; }
+.admin-reply-box .reply-content {
+    background: var(--input-bg);
+    padding: 12px;
+    border-radius: 12px;
+    color: var(--input-text);
+}

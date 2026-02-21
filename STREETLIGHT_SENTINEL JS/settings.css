@@ -1,0 +1,83 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.settings-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+.settings-tab {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: 30px;
+}
+.settings-tab.active {
+    background: var(--green);
+    color: white;
+}
+.settings-tab-content {
+    display: none;
+}
+.settings-tab-content.active {
+    display: block;
+}
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.profile-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--green);
+}
+.profile-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.profile-fields label {
+    font-weight: 500;
+}
+.profile-fields input {
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--input-text);
+}
+.support-btn.small {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+.form-message {
+    text-align: center;
+    font-weight: 500;
+}
+.camera-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+#cameraPreview {
+    border-radius: 20px;
+    border: 2px solid var(--green);
+    background: #000;
+}

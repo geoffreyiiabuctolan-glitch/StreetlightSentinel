@@ -1,0 +1,72 @@
+.avatar-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--green);
+}
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--light);
+}
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+body.dark .users-table { background: var(--bg-secondary); }
+.users-table th {
+    background: var(--green);
+    color: white;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+}
+.users-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+}
+.users-table tr:last-child td { border-bottom: none; }
+.status-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.status-dot.green { background: #22c55e; box-shadow: 0 0 0 2px rgba(34,197,94,0.2); }
+.status-dot.red { background: #ef4444; box-shadow: 0 0 0 2px rgba(239,68,68,0.2); }
+.work-toggle {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 30px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    outline: none;
+    margin-right: 8px;
+    color: var(--input-text);
+}
+.work-toggle.on {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+.work-toggle.off:hover { background: var(--light); }
+.delete-user {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.delete-user:hover { background: #dc2626; }
