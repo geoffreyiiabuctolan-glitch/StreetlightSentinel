@@ -1,0 +1,435 @@
+/* settings.css - Fully themed for light/dark mode with BLUE primary color */
+/* UPDATES:
+   • Replaced all green with --primary-blue and --primary-blue-dark to match poster theme
+   • No white button backgrounds – active states use darker blue
+   • Settings tabs, toggles, selects, and cards use theme variables
+   • Dark mode adapts automatically
+*/
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.settings-tab {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: 30px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.settings-tab:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.settings-tab.active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Active state – no white */
+.settings-tab:active {
+    transform: translateY(0);
+    filter: brightness(0.9);
+    background: inherit !important;
+}
+
+.settings-tab.active:active {
+    background: var(--primary-blue-dark) !important;
+    filter: none;
+}
+
+.settings-tab-content {
+    display: none;
+}
+
+.settings-tab-content.active {
+    display: block;
+}
+
+.settings-card {
+    background: var(--bg-secondary);
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row select {
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--input-text);
+    font-size: 14px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.setting-row select:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.toggle-switch {
+    width: 54px;
+    height: 28px;
+    background: var(--text-secondary);
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.toggle-switch.active {
+    background: var(--primary-blue);
+}
+
+.toggle-switch::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: 0.15s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-switch.active::after {
+    left: 28px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-blue);
+}
+
+.camera-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#cameraPreview {
+    border-radius: 20px;
+    border: 2px solid var(--primary-blue);
+    background: #000;
+    max-width: 100%;
+}
+
+.profile-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-fields label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.profile-fields input {
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--input-text);
+    font-size: 14px;
+}
+
+.profile-fields input:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Support button – now uses blue */
+.support-btn.small {
+    padding: 8px 16px;
+    font-size: 14px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    font-weight: 600;
+}
+
+.support-btn.small:hover {
+    background: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.support-btn.small:active {
+    transform: translateY(0);
+    filter: brightness(0.9);
+    background: var(--primary-blue) !important;
+}
+
+.form-message {
+    text-align: center;
+    font-weight: 500;
+    margin-top: 10px;
+    color: var(--text-primary);
+}
+
+/* Notifications tab */
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.notification-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.option-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+.option-info i {
+    width: 20px;
+    color: var(--primary-blue);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text-secondary);
+    transition: .3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-blue);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.quiet-hours-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.quiet-hours-input input {
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--input-text);
+}
+
+.notification-option select,
+.notification-option input[type="range"] {
+    width: 120px;
+    background: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 8px;
+}
+
+.settings-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .settings-tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-bottom: 8px;
+    }
+
+    .settings-tab {
+        padding: 8px 16px;
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    .settings-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .setting-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .setting-row select {
+        width: 100%;
+    }
+
+    .profile-card {
+        align-items: center;
+    }
+
+    .avatar-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-fields input {
+        font-size: 13px;
+    }
+
+    .notifications-list {
+        gap: 12px;
+    }
+
+    .notification-option {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .quiet-hours-input {
+        justify-content: flex-start;
+    }
+
+    .notification-option select,
+    .notification-option input[type="range"] {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-tabs {
+        justify-content: center;
+    }
+
+    .settings-card {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .toggle-switch {
+        width: 48px;
+        height: 24px;
+    }
+
+    .toggle-switch::after {
+        width: 20px;
+        height: 20px;
+    }
+
+    .toggle-switch.active::after {
+        left: 26px;
+    }
+
+    .support-btn.small {
+        width: 100%;
+    }
+}

@@ -1,0 +1,250 @@
+/* adminUsers.css - Fully themed with sky-blue + yellow accents */
+/* UPDATES:
+   • Added vertical-align: middle to all table cells for consistent alignment
+   • Status dot now uses flexbox to center perfectly within its cell
+   • Adjusted column percentages for better balance
+   • All other styles preserved
+*/
+
+.avatar-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-blue);
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+}
+
+/* Table container – no overflow scroll, table fills width */
+.table-responsive {
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: var(--shadow-md);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-secondary);
+    border-radius: 28px;
+    overflow: hidden;
+    table-layout: fixed; /* Enforces column widths */
+}
+
+/* Column widths – percentages that sum to 100% (9 columns) */
+.users-table colgroup col:nth-child(1) { width: 5%; }   /* Avatar */
+.users-table colgroup col:nth-child(2) { width: 12%; }  /* Username */
+.users-table colgroup col:nth-child(3) { width: 18%; }  /* Email */
+.users-table colgroup col:nth-child(4) { width: 14%; }  /* Name */
+.users-table colgroup col:nth-child(5) { width: 12%; }  /* Phone */
+.users-table colgroup col:nth-child(6) { width: 8%; }   /* Role */
+.users-table colgroup col:nth-child(7) { width: 8%; }   /* Logged In (dot only) */
+.users-table colgroup col:nth-child(8) { width: 12%; }  /* Work Status (toggle) */
+.users-table colgroup col:nth-child(9) { width: 11%; }  /* Actions */
+
+/* Rounded corners */
+.users-table thead tr:first-child th:first-child {
+    border-top-left-radius: 28px;
+}
+.users-table thead tr:first-child th:last-child {
+    border-top-right-radius: 28px;
+}
+.users-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 28px;
+}
+.users-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 28px;
+}
+
+.users-table th {
+    background: var(--primary-blue);
+    color: var(--accent-yellow);
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap; /* headers stay on one line */
+    vertical-align: middle;
+}
+
+.users-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+    word-break: break-word; /* long words wrap */
+    white-space: normal; /* allow wrapping */
+    vertical-align: middle; /* ensures all content aligns vertically */
+}
+
+.users-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status indicators (for Logged In column) */
+.status-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 auto; /* center horizontally if needed */
+}
+
+.status-dot.green {
+    background: var(--status-success);
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+.status-dot.red {
+    background: var(--status-error);
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Work toggle button – natural width */
+.work-toggle {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    outline: none;
+    color: var(--text-primary);
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.work-toggle:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-blue);
+}
+
+.work-toggle:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+}
+
+.work-toggle.on {
+    background: var(--status-success);
+    color: white;
+    border-color: var(--status-success);
+}
+
+.work-toggle.on:hover {
+    background: var(--status-success-dark);
+}
+
+.work-toggle.on:active {
+    filter: brightness(0.9);
+    background: var(--status-success) !important;
+}
+
+/* Delete user button – natural width */
+.delete-user {
+    background: var(--status-error);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.delete-user:hover {
+    background: var(--status-error-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.delete-user:active {
+    transform: translateY(0);
+    filter: brightness(0.9);
+    background: var(--status-error) !important;
+}
+
+.delete-user:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .users-table th, .users-table td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        border-radius: 20px;
+    }
+
+    .users-table {
+        border-radius: 20px;
+    }
+    .users-table thead tr:first-child th:first-child {
+        border-top-left-radius: 20px;
+    }
+    .users-table thead tr:first-child th:last-child {
+        border-top-right-radius: 20px;
+    }
+    .users-table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 20px;
+    }
+    .users-table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 20px;
+    }
+
+    .users-table th {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .users-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .avatar-thumb, .avatar-placeholder {
+        width: 32px;
+        height: 32px;
+    }
+
+    .work-toggle, .delete-user {
+        padding: 4px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .users-table {
+        font-size: 12px;
+    }
+
+    .users-table th {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .users-table td {
+        padding: 8px 10px;
+    }
+
+    .work-toggle, .delete-user {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}

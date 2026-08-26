@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streetlight Sentinel · IoT Monitoring</title>
+    
+    <!-- Favicon – using your logo.png -->
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap">
+    
+    <!-- Leaflet CSS (for map) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="support.css">
+    <link rel="stylesheet" href="adminSupport.css">
+    <link rel="stylesheet" href="adminUsers.css">
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Firebase SDK (compat version) – loaded exactly once -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+    <!-- Firebase configuration -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCPwY873K69v0VWxdjNkMnKi781wPqkstA",
+        authDomain: "streetlight-sentinel1.firebaseapp.com",
+        projectId: "streetlight-sentinel1",
+        storageBucket: "streetlight-sentinel1.firebasestorage.app",
+        messagingSenderId: "212047142472",
+        appId: "1:212047142472:web:9c87b1a7bc20e0af1f027d",
+        measurementId: "G-L420HDDTB7"
+      };
+      
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+      // Make Firestore globally available
+      window.db = firebase.firestore();
+      
+      console.log('Firebase initialized');
+    </script>
+
+    <!-- Application scripts (order matters) -->
+    <script src="main.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="settings.js"></script>
+    <script src="support.js"></script>
+    <script src="adminSupport.js"></script>
+    <script src="adminUsers.js"></script>
+</body>
+</html>

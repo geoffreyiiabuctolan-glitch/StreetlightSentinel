@@ -1,0 +1,235 @@
+/* adminSupport.css - Themed with sky-blue + yellow accents, full light/dark mode */
+/* UPDATES:
+   • Explicitly set color on .ticket-card and .ticket-detail to var(--text-primary)
+   • Fixed dark mode text visibility
+*/
+
+.support-container {
+    display: flex;
+    gap: 28px;
+    height: calc(100vh - 180px);
+    min-height: 500px;
+}
+
+.ticket-list {
+    flex: 1;
+    background: var(--bg-secondary);
+    border-radius: 28px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    overflow-y: auto;
+    box-shadow: var(--shadow-md);
+}
+
+.ticket-list h3 {
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ticket-list h3 i {
+    color: var(--accent-yellow);
+}
+
+.ticket-card {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-primary);
+}
+
+.ticket-card:hover {
+    transform: translateX(4px);
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+
+.ticket-card .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--text-primary);
+}
+
+.ticket-type-badge {
+    background: var(--accent-yellow);
+    color: #1e293b;
+    padding: 4px 12px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ticket-detail {
+    flex: 1;
+    background: var(--bg-secondary);
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+}
+
+.ticket-detail select,
+.ticket-detail textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    margin: 10px 0;
+    font-size: 15px;
+    resize: vertical;
+    background: var(--input-bg);
+    color: var(--input-text);
+    outline: none;
+}
+
+.ticket-detail select:focus,
+.ticket-detail textarea:focus {
+    box-shadow: 0 0 0 3px rgba(2, 132, 200, 0.3);
+}
+
+.support-btn {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    outline: none;
+}
+
+.support-btn:hover {
+    background: var(--primary-blue-dark);
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+.support-btn:active {
+    transform: translateY(0);
+    filter: brightness(0.9);
+    background: var(--primary-blue) !important;
+}
+
+.support-btn:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.admin-reply-box {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 16px;
+    border-left: 4px solid var(--accent-yellow);
+}
+
+.admin-reply-box p {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.admin-reply-box .reply-content {
+    background: var(--input-bg);
+    padding: 12px;
+    border-radius: 12px;
+    color: var(--text-primary);
+}
+
+/* Responsive adjustments (same as support.css) */
+@media (max-width: 1024px) {
+    .support-container {
+        height: auto;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .support-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .ticket-list {
+        padding: 20px;
+        border-radius: 20px;
+        max-height: 300px;
+    }
+
+    .ticket-list h3 {
+        font-size: 18px;
+    }
+
+    .ticket-card {
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .ticket-detail {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .support-btn {
+        padding: 12px 24px;
+        align-self: center;
+        width: 100%;
+    }
+
+    .admin-reply-box {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket-list {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .ticket-card {
+        padding: 12px;
+    }
+
+    .ticket-card .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ticket-type-badge {
+        padding: 3px 10px;
+        font-size: 11px;
+    }
+
+    .ticket-detail {
+        padding: 16px;
+    }
+
+    .ticket-detail select,
+    .ticket-detail textarea {
+        font-size: 14px;
+    }
+
+    .admin-reply-box {
+        padding: 12px;
+    }
+
+    .admin-reply-box .reply-content {
+        font-size: 13px;
+    }
+}

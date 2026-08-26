@@ -1,0 +1,399 @@
+/* dashboard.css - Fully themed for light/dark mode with sky-blue + yellow accents */
+/* Required variables in :root and body.dark (already in style.css):
+   :root {
+     --primary-blue: #0284c8;
+     --primary-blue-dark: #0369a1;
+     --accent-yellow: #eab308;
+     --status-success: #22c55e;
+     --status-success-dark: #16a34a;
+     --status-error: #ef4444;
+     --status-error-dark: #dc2626;
+     --status-error-light: #fee2e2;    // light red background for badges
+     --bg-primary, --bg-secondary, --border, --text-primary, etc.
+   }
+   body.dark {
+     --primary-blue: #0ea5e9;
+     --primary-blue-dark: #0284c8;
+     --accent-yellow: #facc15;
+     --status-success: #4ade80;
+     --status-success-dark: #22c55e;
+     --status-error: #f87171;
+     --status-error-dark: #ef4444;
+     --status-error-light: #451a1a;    // dark red background for badges
+   }
+*/
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--primary-blue);
+    padding: 18px 28px;
+    border-radius: 60px;
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.map-title {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.map-title i {
+    color: var(--accent-yellow);
+}
+
+.connection-status {
+    background: var(--primary-blue-dark);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 40px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.connection-status.offline {
+    background: var(--status-error);
+}
+
+#gisMap {
+    height: 380px;
+    width: 100%;
+    border-radius: 28px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 28px;
+}
+
+.group-panel {
+    background: var(--bg-secondary);
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.group-name {
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.group-name i {
+    color: var(--accent-yellow);
+}
+
+.group-status {
+    padding: 6px 22px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+}
+
+.group-status.green {
+    background: var(--status-success);
+}
+.group-status.red {
+    background: var(--status-error);
+}
+
+.panel-content {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.fault-list {
+    flex: 1;
+    min-width: 280px;
+    background: var(--primary-blue);
+    border-radius: 24px;
+    padding: 20px;
+    color: white;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fault-list h4 {
+    margin-bottom: 16px;
+    color: var(--accent-yellow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+}
+
+.subunit-item {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.subunit-item i {
+    width: 20px;
+    color: var(--accent-yellow);
+}
+
+.fault-badge {
+    background: var(--status-error-light);
+    color: var(--status-error-dark);
+    padding: 4px 12px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.camera-preview {
+    flex: 1;
+    min-width: 280px;
+    background: #1e293b;  /* dark in light mode */
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    min-height: 220px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+body.dark .camera-preview {
+    background: #0f172a;  /* even darker in dark mode */
+}
+
+.camera-preview::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 8px);
+    pointer-events: none;
+}
+
+.camera-preview i {
+    font-size: 48px;
+    margin-bottom: 12px;
+    color: var(--accent-yellow);
+    z-index: 1;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    border-radius: 28px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; /* assuming they are clickable */
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-blue);
+}
+
+.stat-card:active {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+    border-color: var(--primary-blue-dark);
+}
+
+.stat-card:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.stat-card h4 {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-number {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-unit {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.pulse {
+    width: 10px;
+    height: 10px;
+    background: var(--status-success);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--status-success); }
+    70% { box-shadow: 0 0 0 10px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #gisMap {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .map-header {
+        padding: 14px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .map-title {
+        font-size: 20px;
+    }
+
+    .connection-status {
+        padding: 6px 16px;
+        font-size: 14px;
+    }
+
+    .group-panel {
+        padding: 20px;
+    }
+
+    .group-name {
+        font-size: 18px;
+    }
+
+    .panel-content {
+        flex-direction: column;
+    }
+
+    .fault-list, .camera-preview {
+        min-width: 100%;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+    }
+
+    #gisMap {
+        height: 250px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-header {
+        padding: 10px 16px;
+        border-radius: 40px;
+    }
+
+    .map-title {
+        font-size: 18px;
+    }
+
+    .connection-status {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+
+    .group-panel {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .group-name {
+        font-size: 16px;
+    }
+
+    .group-status {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+
+    .fault-list h4 {
+        font-size: 16px;
+    }
+
+    .subunit-item {
+        font-size: 13px;
+    }
+
+    .fault-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+
+    .camera-preview i {
+        font-size: 36px;
+    }
+
+    .stat-card h4 {
+        font-size: 12px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+}
